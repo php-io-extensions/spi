@@ -32,13 +32,15 @@ class SPIWrite
      * CS toggles after this operation
      * Returns number of bytes written
      */
-    public static function write(int fd, string payload) -> int
+    public static function write(int fd, var data) -> int
     {
+        string payload = data;
         return spi_write(fd, payload);
     }
 
-    public static function message(int fd, string tx) -> array
+    public static function message(int fd, var data) -> array
     {
+        string tx = data;
         var result;
         let result = spi_message(fd, tx);
         return result;
