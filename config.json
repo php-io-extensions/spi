@@ -3,7 +3,7 @@
     "name": "spi",
     "description": "PHP-Controllable SPI Extension",
     "author": "Project Saturn Studios, LLC",
-    "version": "0.1.4",
+    "version": "0.1.6",
     "extra-sources": [
         "api/spi-read.c",
         "api/spi-write.c"
