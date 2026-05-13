@@ -1,0 +1,30 @@
+{
+    "name": "php-io-extensions/spi",
+    "type": "php-ext",
+    "description": "PHP-Controllable SPI Extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Project Saturn Studios, LLC",
+            "email": "info@projectsaturnstudios.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.3"
+    },
+    "php-ext": {
+        "extension-name": "spi",
+        "priority": 30,
+        "build-path": "ext",
+        "support-zts": true,
+        "support-nts": true,
+        "os-families-exclude": ["windows", "darwin"],
+        "configure-options": [
+            {
+                "name": "enable-spi",
+                "description": "Enable the Linux SPI extension",
+                "needs-value": false
+            }
+        ]
+    }
+}
