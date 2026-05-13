@@ -118,46 +118,48 @@ PHP_METHOD(Spi_SPIWrite, wrLsbFirst)
  */
 PHP_METHOD(Spi_SPIWrite, write)
 {
+	zval data;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zval payload;
-	zval *fd_param = NULL, *payload_param = NULL, _0;
+	zval *fd_param = NULL, *payload = NULL, payload_sub, _0;
 	zend_long fd;
 
+	ZVAL_UNDEF(&payload_sub);
 	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&payload);
+	ZVAL_UNDEF(&data);
 	ZEND_PARSE_PARAMETERS_START(2, 2)
 		Z_PARAM_LONG(fd)
-		Z_PARAM_STR(payload)
+		Z_PARAM_ZVAL(payload)
 	ZEND_PARSE_PARAMETERS_END();
 	ZEPHIR_METHOD_GLOBALS_PTR = pecalloc(1, sizeof(zephir_method_globals), 0);
 	zephir_memory_grow_stack(ZEPHIR_METHOD_GLOBALS_PTR, __func__);
-	zephir_fetch_params(1, 2, 0, &fd_param, &payload_param);
-	zephir_get_strval(&payload, payload_param);
+	zephir_fetch_params(1, 2, 0, &fd_param, &payload);
+	zephir_get_strval(&data, payload);
 	ZVAL_LONG(&_0, fd);
-	RETURN_MM_LONG(spi_write(&_0, &payload));
+	RETURN_MM_LONG(spi_write(&_0, &data));
 }
 
 PHP_METHOD(Spi_SPIWrite, message)
 {
+	zval payload;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zval tx;
-	zval *fd_param = NULL, *tx_param = NULL, result, _0;
+	zval *fd_param = NULL, *tx = NULL, tx_sub, result, _0;
 	zend_long fd;
 
+	ZVAL_UNDEF(&tx_sub);
 	ZVAL_UNDEF(&result);
 	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&tx);
+	ZVAL_UNDEF(&payload);
 	ZEND_PARSE_PARAMETERS_START(2, 2)
 		Z_PARAM_LONG(fd)
-		Z_PARAM_STR(tx)
+		Z_PARAM_ZVAL(tx)
 	ZEND_PARSE_PARAMETERS_END();
 	ZEPHIR_METHOD_GLOBALS_PTR = pecalloc(1, sizeof(zephir_method_globals), 0);
 	zephir_memory_grow_stack(ZEPHIR_METHOD_GLOBALS_PTR, __func__);
-	zephir_fetch_params(1, 2, 0, &fd_param, &tx_param);
-	zephir_get_strval(&tx, tx_param);
+	zephir_fetch_params(1, 2, 0, &fd_param, &tx);
+	zephir_get_strval(&payload, tx);
 	ZVAL_LONG(&_0, fd);
 	ZEPHIR_INIT_VAR(&result);
-	spi_message(&result, &_0, &tx);
+	spi_message(&result, &_0, &payload);
 	RETURN_CCTOR(&result);
 }
 

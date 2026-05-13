@@ -11,7 +11,7 @@
 #include "kernel/globals.h"
 
 #define PHP_SPI_NAME        "spi"
-#define PHP_SPI_VERSION     "0.1.1"
+#define PHP_SPI_VERSION     "0.1.4"
 #define PHP_SPI_EXTNAME     "spi"
 #define PHP_SPI_AUTHOR      "Project Saturn Studios, LLC"
 #define PHP_SPI_ZEPVERSION  "0.19.0-$Id$"
